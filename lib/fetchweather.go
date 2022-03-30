@@ -52,8 +52,8 @@ func fetch(apiAddress string) (apiData io.ReadCloser, fetchErr error){
 	return apiData, fetchErr
 }
 
-func data2struct(apiData io.ReadCloser) (weatherReport weatherReport_t){
+func data2struct(apiData io.ReadCloser) (weatherReport weatherReport_t, err error){
 	weatherReport = weatherReport_t{}
-	err := json.NewDecoder(apiData).Decode(&weatherReport)
-	return weatherReport
+	err = json.NewDecoder(apiData).Decode(&weatherReport)
+	return weatherReport, err
 }
