@@ -1,4 +1,4 @@
-package fetchweather 
+package lib 
 
 import (
 	"encoding/json"
@@ -47,7 +47,7 @@ func fetch(apiAddress string) (apiData io.ReadCloser, fetchErr error, readErr er
 	* serve us. */
 	response, fetchErr := http.Get(apiAddress)
 	
-	/* Read it with ioutil.ReadAll() */
+	/* Assign "apiData" to response.Body */
 	apiData = response.Body
 
 	return apiData, fetchErr, readErr
@@ -56,6 +56,5 @@ func fetch(apiAddress string) (apiData io.ReadCloser, fetchErr error, readErr er
 func data2struct(apiData io.ReadCloser) (weatherReport weatherReport_t){
 	weatherReport = weatherReport_t{}
 	err := json.NewDecoder(apiData).Decode(&weatherReport)
-	fmt.Println(err)
 	return weatherReport
 }
