@@ -41,7 +41,7 @@ type weatherReport_t struct {
 	} `json:"current_condition"`
 }
 
-func fetch(apiAddress string) (apiData io.ReadCloser, fetchErr error, readErr error){
+func fetch(apiAddress string) (apiData io.ReadCloser, fetchErr error){
 	/* First of all, fetch the JSON that our API (for now, wttr.in) will
 	* serve us. */
 	response, fetchErr := http.Get(apiAddress)
@@ -49,7 +49,7 @@ func fetch(apiAddress string) (apiData io.ReadCloser, fetchErr error, readErr er
 	/* Assign "apiData" to response.Body */
 	apiData = response.Body
 
-	return apiData, fetchErr, readErr
+	return apiData, fetchErr
 }
 
 func data2struct(apiData io.ReadCloser) (weatherReport weatherReport_t){
