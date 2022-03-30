@@ -13,7 +13,7 @@ const (
 
 func main() {
 	apiData, _ := fetch(weatherAPI)
-	weatherReport := data2struct(apiData)
+	weatherReport, _ := data2struct(apiData)
 
 	fmt.Println(weatherReport.CurrentCondition[0])
 }
