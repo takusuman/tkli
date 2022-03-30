@@ -3,7 +3,6 @@ package main
 import (
 	/* "modernc.org/tk" */
 	"fmt"
-	"github.com/takusuman/tkli"
 )
 
 const (
