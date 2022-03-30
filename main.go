@@ -12,8 +12,8 @@ const (
 )
 
 func main() {
-	apiData, _ := fetch(weatherAPI)
-	weatherReport, _ := data2struct(apiData)
+	apiData, _ := lib.FetchAPIData(weatherAPI)
+	weatherReport, _ := lib.Data2Struct(apiData)
 
 	fmt.Println(weatherReport.CurrentCondition[0])
 }
