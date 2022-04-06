@@ -3,7 +3,7 @@ package main
 import (
 	/* "modernc.org/tk" */
 	"fmt"
-	"github.com/takusuman/tkli/lib"
+	"github.com/takusuman/tkli/lib/api"
 )
 
 const (
@@ -12,7 +12,7 @@ const (
 )
 
 func main() {
-	apiData, _ := lib.FetchAPIData(weatherAPI)
+	apiData, _ := api.FetchAPIData(weatherAPI)
 	/* Expect getting a "struct array" back */
 	weatherReport, _ := lib.Data2Struct(apiData)
 	weatherCurrentCondition := weatherReport.CurrentCondition[0]
